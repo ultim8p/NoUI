@@ -96,7 +96,11 @@ public extension PView {
     
     func removeConstraints() {
         for (_, constraints) in associatedConstraints.constraints {
-            constraints.forEach { $0.isActive = false }
+            constraints.forEach {
+                $0.isActive = false
+                $0.shouldBeArchived = false
+                removeConstraint($0)
+            }
         }
         
         associatedConstraints.constraints = [:]
@@ -114,6 +118,8 @@ public extension PView {
         
         for constraint in existingConstraints where anchorType(for: constraint) == attribute {
             constraint.isActive = false
+            constraint.shouldBeArchived = false
+            removeConstraint(constraint)
         }
         
         associatedConstraints.constraints[trait] = filteredConstraints
