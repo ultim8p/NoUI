@@ -7,7 +7,8 @@ let package = Package(
     name: "NoUI",
     platforms: [
         .macOS(.v12),
-        .iOS(.v12)
+        .iOS(.v12),
+        .visionOS(.v1)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.

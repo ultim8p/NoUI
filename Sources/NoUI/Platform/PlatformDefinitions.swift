@@ -16,7 +16,8 @@ import AppKit
 #if os(macOS)
 public typealias PView = NSView
 public typealias PConstraintPriority = NSLayoutConstraint.Priority
-#elseif os(iOS)
+#else
+// iOS, visionOS, tvOS, etc. all use UIKit.
 public typealias PView = UIView
 public typealias PConstraintPriority = UILayoutPriority
 #endif
